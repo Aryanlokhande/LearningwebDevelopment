@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinFlip</title>
+    <style>
+        body{
+            background: rgb(40, 39, 39);
+            padding: 2%;
+        }
+        button{
+            background-color: #424442;
+            color: rgb(240, 204, 24);
+            border-color: rgb(240, 204, 24);
+            width: 48%;
+            padding: 20% 0;
+            /* height: 98%; */
+        }
+    </style>
+</head>
+<body>
+    <button class="play-btn" onclick="
+        const num=Math.random();
+        const flip=(num<.5)?'heads':'tails';
+        const guess=(flip==='heads')?true:false;
+        guess?alert('You Win'):alert('You Lose');
+    ">Heads</button>
+    <button class="play-btn" onclick="
+        const num2=Math.random();
+        const flip2=(num2<.5)?'heads':'tails';
+        const guess2=(flip2==='heads')?true:'false';
+        guess2?alert('You Win'):alert('You Lose');
+    ">Tails</button>
+</body>
+</html>

@@ -86,7 +86,7 @@
         ">0</button>
 
         <button onclick="
-            display+='=';
+            display=eval(display);
             console.log(display);
         ">=</button>
 
@@ -96,9 +96,12 @@
         ">/</button>
     </div>
 
+    <button onclick="
+        display='';
+        console.log(display);
+    ">Clear</button>
     <script>
         let display="";
-        console.log(display);
     </script>
 </body>
 </html>

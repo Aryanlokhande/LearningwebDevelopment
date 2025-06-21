@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+    <style>
+
+        body{
+            background-color: rgb(45, 43, 43);
+            color: white;
+        }
+        label{
+            display: inline;
+        }
+        p{
+            display: inline;
+        }
+
+        .results{
+            display: flex;
+            flex-direction: row;
+            gap: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rock Paper Scissors</h2>
+
+    <div id="play-btns">
+
+        <div id="rock-btn">
+            <label for="rock">Rock</label>
+            <button id="rock" value="rock" onclick="
+            const randNum=Math.random();
+            
+            let compMove;
+            if(randNum>=0 && randNum<1/3) compMove='rock';
+            else if(randNum>=1/3 && randNum<2/3) compMove='paper';
+            else compMove='scissors';
+            
+            if(compMove==='paper') Losses+=1;
+            else if(compMove==='scissors') Wins+=1;
+            else Ties+=1;
+            
+            console.log(compMove);
+            console.log('Wins: ' + Wins + 'Ties: ' + Ties + 'Losses: ' + Losses);
+            ">Rock</button>
+        </div>
+    
+        <div id="paper-btn">
+            <label for="paper">Paper</label>
+            <button id="paper" value="paper" onclick="
+                const randNum1=Math.random();
+                
+                let compMove1;
+                if(randNum1>=0 && randNum1<1/3) compMove1='rock';
+                else if(randNum1>=1/3 && randNum1<2/3) compMove1='paper';
+                else compMove1='scissors';
+                
+                if(compMove1==='scissors') Losses+=1;
+                else if(compMove1==='rock') Wins+=1;
+                else Ties+=1;
+                
+                console.log(compMove1);
+                console.log('Wins: ' + Wins + 'Ties: ' + Ties + 'Losses: ' + Losses);
+                
+                ">Paper</button>
+        </div>
+    
+        <div id="scissors-btn">
+            <label for="scissors">Scissors</label>
+            <button id="scissors" value="scissors" onclick="
+                const randNum2=Math.random();
+                
+                let compMove2;
+                if(randNum2>=0 && randNum2<1/3) compMove2='rock';
+                else if(randNum2>=1/3 && randNum2<2/3) compMove2='paper';
+                else compMove2='scissors';
+                
+                if(compMove2==='rock') Losses+=1;
+                else if(compMove2==='paper') Wins+=1;
+                else Ties+=1;
+                
+                console.log(compMove2);
+                console.log('Wins: ' + Wins + 'Ties: ' + Ties + 'Losses: ' + Losses);
+                
+                ">Scissors</button>
+        </div>
+    </div>
+    
+    <h3>Results</h5>
+    <div class="results">
+        <div class="result">
+            <label for="win-count" >Wins: </label><p id="win-count"></p>
+        </div>
+        
+        <div class="result">
+            <label for="tie-count">Ties: </label><p id="tie-count"></p>
+        </div>
+
+        <div class="result">
+            <label for="loss-count">Losses: </label><p id="loss-count"></p>
+        </div>
+    </div>
+
+    
+    <script></script>
+</body>
+</html>

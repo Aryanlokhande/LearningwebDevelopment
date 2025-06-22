@@ -21,16 +21,21 @@
 </head>
 <body>
     <button class="play-btn" onclick="
-        const num=Math.random();
-        const flip=(num<.5)?'heads':'tails';
-        const guess=(flip==='heads')?true:false;
-        guess?alert('You Win'):alert('You Lose');
+        toss();
     ">Heads</button>
     <button class="play-btn" onclick="
-        const num2=Math.random();
-        const flip2=(num2<.5)?'heads':'tails';
-        const guess2=(flip2==='heads')?true:'false';
-        guess2?alert('You Win'):alert('You Lose');
+        toss();
     ">Tails</button>
+
+    <script>
+
+        function toss(){
+            const num=Math.random();
+            const flip=(num<.5)?'heads':'tails';
+            const guess=(flip==='heads')?true:false;
+            guess?alert('You Win'):alert('You Lose');       
+        }
+
+    </script>
 </body>
 </html>

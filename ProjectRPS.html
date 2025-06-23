@@ -77,12 +77,16 @@
         // let Ties=0;
         // let Losses=0;
 
-        const player={
+        const player= JSON.parse(localStorage.getItem('scores')) || {
             wins:0,
-            ties:0,
+            ties:0, 
             losses:0
         };
-        
+
+        document.getElementById('win-count').innerText = player.wins;
+        document.getElementById('tie-count').innerText = player.ties;
+        document.getElementById('loss-count').innerText = player.losses;
+
         function compMoveLogic(){
             let compMove;
             const randNum=Math.random();
@@ -103,6 +107,8 @@
             else if (userMove===compMove) player.ties++;
             else player.losses++;
 
+            localStorage.setItem('scores', JSON.stringify(player));
+
             document.getElementById('your-move').innerText = userMove;
             document.getElementById('comp-move').innerText = compMove;
 
@@ -119,6 +125,8 @@
             document.getElementById('win-count').innerText = player.wins;
             document.getElementById('tie-count').innerText = player.ties;
             document.getElementById('loss-count').innerText = player.losses;
+            
+            localStorage.removeItem('score');
         }
     </script>
 </body>

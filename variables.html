@@ -6,6 +6,7 @@
     <title>Variables</title>
 </head>
 <body>
+    <p id="cel-to-far"></p>
     <script>
         const cost=2*5 + 2*3 + 1*9;
         console.log(`cost : ${cost}$`);
@@ -13,6 +14,14 @@
         console.log(`tax : ${tax}$`);
         const total=cost+tax;
         console.log(`total: ${total}$`);
+
+
+        function celToFar(cel){
+            document.getElementById('cel-to-far').innerText=`cel: ${cel} To far: ${cel*9/5+32}`;
+            return;
+        }
+
+        celToFar(29);
     </script>
 </body>
 </html>

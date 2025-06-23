@@ -43,6 +43,8 @@
             <label for="scissors">Scissors</label>
             <button id="scissors" value="scissors" onclick="play('scissors')">Scissors</button>
         </div>
+
+        <button id="reset" onclick="resetScore()">Reset</button>
     </div>
     
     <div class="comparisons">
@@ -71,10 +73,15 @@
 
     
     <script>
-        let Wins=0;
-        let Ties=0;
-        let Losses=0;
+        // let Wins=0;
+        // let Ties=0;
+        // let Losses=0;
 
+        const player={
+            wins:0,
+            ties:0,
+            losses:0
+        };
         
         function compMoveLogic(){
             let compMove;
@@ -92,16 +99,26 @@
                 (userMove==='rock' && compMove==='scissors') ||
                 (userMove==='paper' && compMove==='rock') ||
                 (userMove==='scissors' && compMove==='paper')
-            )    Wins++;
-            else if (userMove===compMove) Ties++;
-            else Losses++;
+            )    player.wins++;
+            else if (userMove===compMove) player.ties++;
+            else player.losses++;
 
             document.getElementById('your-move').innerText = userMove;
             document.getElementById('comp-move').innerText = compMove;
 
-            document.getElementById('win-count').innerText = Wins;
-            document.getElementById('tie-count').innerText = Ties;
-            document.getElementById('loss-count').innerText = Losses;
+            document.getElementById('win-count').innerText = player.wins;
+            document.getElementById('tie-count').innerText = player.ties;
+            document.getElementById('loss-count').innerText = player.losses;
+        }
+
+        function resetScore(){
+            player.wins=0;
+            player.ties=0;
+            player.losses=0;
+
+            document.getElementById('win-count').innerText = player.wins;
+            document.getElementById('tie-count').innerText = player.ties;
+            document.getElementById('loss-count').innerText = player.losses;
         }
     </script>
 </body>

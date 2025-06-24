@@ -17,9 +17,13 @@
             display: inline;
         }
 
-        .results{
+        .scores{
             display: flex;
             flex-direction: row;
+            gap: .5rem;
+        }
+        .comparisons{
+            display: flex;
             gap: .5rem;
         }
     </style>
@@ -47,6 +51,8 @@
         <button id="reset" onclick="resetScore()">Reset</button>
     </div>
     
+    <div class="result"><p id="res"></p></div>
+    
     <div class="comparisons">
         <div class="comparison">
             <label for="your-move">Your Move: </label><p id="your-move"></p>
@@ -56,17 +62,17 @@
         </div>
     </div>
 
-    <h3>Results</h5> 
-    <div class="results">
-        <div class="result">
+    <h3>Score</h3> 
+    <div class="scores">
+        <div class="score">
             <label for="win-count" >Wins: </label><p id="win-count"></p>
         </div>
         
-        <div class="result">
+        <div class="score">
             <label for="tie-count">Ties: </label><p id="tie-count"></p>
         </div>
 
-        <div class="result">
+        <div class="score">
             <label for="loss-count">Losses: </label><p id="loss-count"></p>
         </div>
     </div>
@@ -103,9 +109,20 @@
                 (userMove==='rock' && compMove==='scissors') ||
                 (userMove==='paper' && compMove==='rock') ||
                 (userMove==='scissors' && compMove==='paper')
-            )    player.wins++;
-            else if (userMove===compMove) player.ties++;
-            else player.losses++;
+            ) {
+                document.querySelector('#res').innerText="You Win";
+                player.wins++;
+            }   
+                
+            else if (userMove===compMove){
+                document.querySelector('#res').innerText="You Tied";
+                player.ties++;
+            }
+
+            else{
+                document.querySelector('#res').innerText="You Lose";
+                player.losses++;
+            }
 
             localStorage.setItem('scores', JSON.stringify(player));
 

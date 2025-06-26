@@ -4,104 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #calculation{
+            border: 1px solid black;
+            height: 1.5rem;
+            width: 10rem;
+        }
+    </style>
 </head>
 <body>
     <p>Calculator</p>
 
+    <p id="calculation"></p>
+
     <div>
         <button onclick="
-            display+='1';
-            console.log(display);
+            updateCalculation(1);
         ">1</button>
 
         <button onclick="
-            display+='2';
-            console.log(display);
+            updateCalculation(2);
         ">2</button>
 
         <button onclick="
-            display+='3';
-            console.log(display);
+            updateCalculation(3);
         ">3</button>
 
         <button onclick="
-            display+=' + ';
-            console.log(display);
+            updateCalculation(' + ');
         ">+</button>
     </div>
 
     <div>
         <button onclick="
-            display+='4';
-            console.log(display);
+            updateCalculation(4);
         ">4</button>
 
         <button onclick="
-            display+='5';
-            console.log(display);
+            updateCalculation(5);
         ">5</button>
 
         <button onclick="
-            display+='6';
-            console.log(display);
+            updateCalculation(6);
         ">6</button>
 
         <button onclick="
-            display+=' - ';
-            console.log(display);
+            updateCalculation(' - ');
         ">-</button>
     </div>
 
     <div>
         <button onclick="
-            display+='7';
-            console.log(display);
+            updateCalculation(7);
         ">7</button>
 
         <button onclick="
-            display+='8';
-            console.log(display);
+            updateCalculation(8);
         ">8</button>
 
         <button onclick="
-            display+='9';
-            console.log(display);
+            updateCalculation(9);
         ">9</button>
 
         <button onclick="
-            display+=' * ';
-            console.log(display);
+            updateCalculation(' * ');
         ">*</button>
     </div>
     
     <div>
         <button onclick="
-            display+='.';
-            console.log(display);
+            updateCalculation('.');
         ">.</button>
 
         <button onclick="
-            display+='0';
-            console.log(display);
+            updateCalculation(0);
         ">0</button>
 
         <button onclick="
-            display=eval(display);
-            console.log(display);
+            calculate();
         ">=</button>
 
         <button onclick="
-            display+=' / ';
-            console.log(display);
+            updateCalculation(' / ');            
         ">/</button>
     </div>
 
-    <button onclick="
-        display='';
-        console.log(display);
-    ">Clear</button>
+    <button onclick="reset();">Clear</button>
+
     <script>
-        let display="";
+        let textUpdate='';
+
+        function reset(){
+            textUpdate='';
+            updateCalculation('');
+        }
+        function updateCalculation(num){
+            textUpdate=textUpdate + num;
+            document.querySelector('#calculation').innerHTML=textUpdate;
+        }
+        function calculate(){
+            textUpdate=eval(textUpdate);
+            updateCalculation('');
+        }
     </script>
 </body>
 </html>

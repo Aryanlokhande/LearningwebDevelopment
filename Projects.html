@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Projects</title>
+</head>
+<body>
+    <div>
+        <h4>Youtube</h4>
+        <button class="yt-btn" onclick="
+            subscribe();
+        ">Subscribe</button>
+    </div>
+    
+    <div class="rps-btn">
+        <h4>Rock Paper Scissors</h4>
+        <a href="ProjectRPS.html">Click Here</a>
+    </div>
+
+    <div class="calculate">
+        <input type="number" name="cost" id="cost" placeholder="Cost of order" class="cost-input" onkeydown="
+            if(event.key==='Enter') calculate();
+        ">
+        <button onclick="
+            calculate();
+        ">calculate</button>
+        <p class="costTotal"></p>
+    </div>
+
+    <div class="inputName">
+        <input type="text" name="name" id="name" placeholder="Enter Your Name" class="input-name" onkeydown="
+            if(event.key==='Enter') print();
+        ">
+        <button onclick="print()">Enter</button>
+        <p id="greeting"></p>
+    </div>
+
+    <div class="inputUpdate">
+        <input type="text" name="txt" id="txt" placeholder="Enter text" class="input-update" onkeyup="updateText()">
+        <p id="text-update"></p>
+    </div>
+
+    <script>
+
+        function updateText(){
+            const text=document.querySelector('.input-update');
+            document.querySelector('#text-update').innerHTML=text.value;
+        }
+
+        function print(){
+            document.querySelector('#greeting').innerHTML=`Good Morning, ${(document.querySelector('.input-name')).value}`;
+            console.log(`Good Morning, ${(document.querySelector('.input-name')).value}`);
+        }
+
+        function subscribe(){
+            const state=document.querySelector('.yt-btn').innerHTML; 
+            // console.log(state);
+            if(state==="Subscribe")
+                document.querySelector('.yt-btn').innerHTML="Subscribed";
+            if(state==="Subscribed")    
+                document.querySelector('.yt-btn').innerHTML="Subscribe";
+        }
+
+        function calculate(){
+            const inputElement = document.querySelector('.cost-input');
+            const cost=Number(inputElement.value);
+            if(cost>40) document.querySelector(".costTotal").innerHTML=`Total Cost: ${cost}`;
+            else document.querySelector(".costTotal").innerHTML=`Total Cost: ${cost+10}$`;
+        }    
+            
+    </script>
+    
+</body>
+</html>
